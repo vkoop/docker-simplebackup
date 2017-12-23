@@ -7,7 +7,7 @@ if [ "$1" = 'anacron' ]; then
         ln -s /backups/config /backup-script/config
     fi
     echo "Will run anacron"
-    exec anacron -d -n
+    exec /usr/local/bin/anacron-runner.sh
 fi
 
 exec "$@"

@@ -15,7 +15,9 @@ RUN mkdir -p /usr/local/bin
 
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
-RUN ln -s usr/local/bin/entrypoint.sh / # backwards compat
+
+COPY anacron-runner.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/anacron-runner.sh
 
 ENTRYPOINT ["entrypoint.sh"]
 
