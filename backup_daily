@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/bin/bash /backup-script/setup_ssh.sh                                                                                                                                                                                                                                     
+/bin/bash /backup-script/backup_all_servers.sh 
