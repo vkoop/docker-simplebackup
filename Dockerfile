@@ -1,4 +1,4 @@
-FROM armhf/ubuntu:xenial
+FROM resin/rpi-raspbian
 
 RUN apt-get update \
     && apt-get install -y git anacron sendmail \
