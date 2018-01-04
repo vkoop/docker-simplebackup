@@ -1,0 +1,3 @@
+[submodule "simple-server-backup"]
+	path = simple-server-backup
+	url = https://github.com/vkoop/simple-server-backup.git

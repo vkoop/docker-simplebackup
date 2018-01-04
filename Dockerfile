@@ -5,7 +5,7 @@ RUN apt-get update \
     && apt-get -q clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/vkoop/simple-server-backup.git /backup-script
+COPY ./simple-server-backup /backup-script
 
 RUN rm /etc/cron.daily/*
 COPY ./backup_daily /etc/cron.daily/
