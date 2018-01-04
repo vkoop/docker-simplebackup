@@ -1,7 +1,7 @@
 FROM resin/rpi-raspbian
 
 RUN apt-get update \
-    && apt-get install -y git anacron rsync \
+    && apt-get install -y git anacron rsync openssh-client \
     && apt-get -q clean \
     && rm -rf /var/lib/apt/lists/*
 
