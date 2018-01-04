@@ -1,7 +1,7 @@
 FROM resin/rpi-raspbian
 
 RUN apt-get update \
-    && apt-get install -y git anacron sendmail \
+    && apt-get install -y git anacron rsync \
     && apt-get -q clean \
     && rm -rf /var/lib/apt/lists/*
 
