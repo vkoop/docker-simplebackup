@@ -1,0 +1,6 @@
+version: "3"
+services:
+    backup:
+        build: .
+        volumes:
+        - "/share/backup/backup:/backups"
