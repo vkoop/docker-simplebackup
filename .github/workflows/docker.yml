@@ -20,6 +20,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [linux/arm/v8,linux/arm/v7]  # Add more platforms if needed
+
     
     steps:
       - name: Checkout code
@@ -51,6 +55,6 @@ jobs:
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
           push: true
-          platforms: linux/arm/v8  # ARM architecture
+          platforms: ${{ matrix.platform }}  # ARM architecture
           cache-from: type=gha
           cache-to: type=gha,mode=max
