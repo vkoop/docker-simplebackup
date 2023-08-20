@@ -1,4 +1,4 @@
-FROM --platform=linux/arm/v8 debian:buster
+FROM debian:buster
 
 RUN apt-get update \
     && apt-get install -y git anacron rsync openssh-client \
