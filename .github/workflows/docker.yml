@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        platform: [linux/arm/v8,linux/arm/v7,x86_64]  # Add more platforms if needed
+        platform: [linux/arm/v8,linux/arm/v7,linux/amd64]  # Add more platforms if needed
 
     
     steps:
