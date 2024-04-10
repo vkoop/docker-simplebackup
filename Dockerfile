@@ -1,4 +1,4 @@
-FROM debian:bookworm-20240311-slim
+FROM debian:bookworm-20240408-slim
 
 RUN apt-get update \
     && apt-get install -y git anacron rsync openssh-client \
