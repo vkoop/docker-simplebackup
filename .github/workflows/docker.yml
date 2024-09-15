@@ -1,4 +1,4 @@
-name: Build ARM Docker Image
+name: Build Docker Image
 
 on:
   # This is a basic workflow that is manually triggered
