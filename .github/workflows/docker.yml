@@ -54,8 +54,8 @@ jobs:
           context: .
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-          build-args:
-            CACHEBUST: ${{ steps.docker_meta.outputs.build_date }}
+          build-args: |
+            CACHEBUST=${{ steps.docker_meta.outputs.build_date }}
           push: true
           platforms: ${{ matrix.platform }}  # ARM architecture
           cache-from: type=gha
