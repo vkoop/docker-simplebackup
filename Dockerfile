@@ -5,7 +5,7 @@ RUN apt-get update \
     && apt-get -q clean \
     && rm -rf /var/lib/apt/lists/*
 
-
+ARG CACHEBUST=1 
 RUN git clone --recursive https://github.com/vkoop/simple-server-backup.git /backup-script
 
 
