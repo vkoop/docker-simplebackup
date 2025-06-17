@@ -6,7 +6,7 @@ services:
       - "config:/backup-script/config"
       - "ssh:/ssh"
     restart: "no"
-    entrypoint: ["echo", "Backup container is scheduled by Ofelia and will not run continuously"]
+    command: ["echo", "Backup container is scheduled by Ofelia and will not run continuously"]
     
   # Ofelia scheduler container
   ofelia:
