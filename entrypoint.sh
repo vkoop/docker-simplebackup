@@ -2,8 +2,8 @@
 set -e
 
 if [ "$1" = 'backup' ]; then
-    if [ ! -L "/backup-script/config" ]; then
-        echo "Config folder isn't linked yet. Will create a symlink."
+    if [ ! -L "/backup-script/config" ] && [ ! -d "/backup-script/config" ]; then
+        echo "Config folder doesn't exist yet. Will create a symlink."
         ln -s /backups/config /backup-script/config
     fi
     echo "Running backup..."
