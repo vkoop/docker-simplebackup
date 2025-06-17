@@ -1,20 +1,11 @@
-version: '3'
-
 services:
-  # The backup service that will be scheduled by Ofelia
   backup:
-    image: ghcr.io/vkoop/docker-simplebackup:master
+    image:  ghcr.io/vkoop/docker-simplebackup:master
     volumes:
-      - ./backups:/backups
-    # Labels for Ofelia to detect and schedule this container
-    labels:
-      ofelia.enabled: "true"
-      # Run backup daily at 2 AM
-      ofelia.job-exec.backup.schedule: "0 2 * * *"
-      ofelia.job-exec.backup.command: "backup"
-    # Don't start the container automatically
+      - "backup:/backups"
+      - "config:/backup-script/config"
+      - "ssh:/ssh"
     restart: "no"
-    # We don't want this container to run continuously
     entrypoint: ["echo", "Backup container is scheduled by Ofelia and will not run continuously"]
     
   # Ofelia scheduler container
@@ -26,3 +17,19 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: always
+    labels:
+      # Run backup daily at 2 AM
+      ofelia.job-run.backup.schedule: "0 0 2 * * *"
+      ofelia.job-run.backup.container: "server_backup"
+      ofelia.job-run.backup.command: "backup"
+volumes:
+  config:
+    external: true
+    name: server_backup_config
+  ssh:
+    external: true
+    name: server_backup_ssh
+  backup:
+    name: server_backup
+    external: true
+
